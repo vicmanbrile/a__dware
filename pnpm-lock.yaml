@@ -12,9 +12,6 @@ importers:
         specifier: ^3.2.45
         version: 3.4.27
     devDependencies:
-      '@vitejs/plugin-vue':
-        specifier: ^4.0.0
-        version: 4.6.2(vite@4.5.3)(vue@3.4.27)
       vite:
         specifier: ^4.1.0
         version: 4.5.3
@@ -172,13 +169,6 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.4.15':
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
-
-  '@vitejs/plugin-vue@4.6.2':
-    resolution: {integrity: sha512-kqf7SGFoG+80aZG6Pf+gsZIVvGSCKE98JbiWqcCV9cThtg91Jav0yvYFC9Zb+jKetNGF6ZKeoaxgZfND21fWKw==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    peerDependencies:
-      vite: ^4.0.0 || ^5.0.0
-      vue: ^3.2.25
 
   '@vue/compiler-core@3.4.27':
     resolution: {integrity: sha512-E+RyqY24KnyDXsCuQrI+mlcdW3ALND6U7Gqa/+bVwbcpcR3BRRIckFoz7Qyd4TTlnugtwuI7YgjbvsLmxb+yvg==}
@@ -376,11 +366,6 @@ snapshots:
     optional: true
 
   '@jridgewell/sourcemap-codec@1.4.15': {}
-
-  '@vitejs/plugin-vue@4.6.2(vite@4.5.3)(vue@3.4.27)':
-    dependencies:
-      vite: 4.5.3
-      vue: 3.4.27
 
   '@vue/compiler-core@3.4.27':
     dependencies:
