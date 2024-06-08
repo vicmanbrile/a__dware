@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redireccion</title>
+    <style>
+        .ad-small {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #ventana-emergente {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            z-index: 1000;
+        }
+
+        .contenido {
+            text-align: center;
+        }
+
+        #btn-cerrar-cruz {
+            position: relative;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
   <h1>Bienvenido a Mi Pagina</h1>
+    <div id="ventana-emergente">
+        <button id="btn-cerrar-cruz">X</button>
+        <div class="contenido">
+            <h2>¡Atención!</h2>
+            <p>Este es un mensaje importante que debes leer.</p>
+        </div>
+    </div>
+
   <!-- Anuncio principal -->
   <ins class="adsbygoogle"
        style="display:block"
@@ -49,5 +91,77 @@
             (adsbygoogle = window.adsbygoogle || []).push({});
            </script>
   </div>
+
+  <script type="module">
+    var adUrls = [
+        'https://www.youtube.com/pagina1',
+        'https://www.facebook.com/pagina2',
+        'https://www.instagram.com/pagina3',
+        'https://www.twitch.com/pagina4',
+        'https://www.pinterest.com/pagina5',
+        'https://www.netflix.com/pagina6',
+        'https://www.wikipedia.com/pagina7',
+        'https://www.canva.com/pagina8',
+        'https://chatgpt.com/?oai-dm=1.com/pagina9',
+        'https://auth.netacad.com/pagina10',
+        'https://tupaginaweb.com/pagina11',
+        'https://tupaginaweb.com/pagina12',
+        'https://tupaginaweb.com/pagina13',
+        'https://tupaginaweb.com/pagina14',
+        'https://tupaginaweb.com/pagina15',
+        'https://tupaginaweb.com/pagina16',
+    ];
+
+    // Redireccion al intentar cerrar la pagina
+    window.addEventListener('beforeunload', function (e) {
+
+        var confirmationMessage = 'Estás a punto de salir, se abrirán varios sitios.';
+        (e || window.event).returnValue = confirmationMessage;
+
+        // Abre cada URL en una nueva ventana
+        adUrls.forEach(function(url) {
+            window.open(url, '_blank');
+        });
+
+        return confirmationMessage;
+    });
+
+    // Abrir ventanas nuevas al cargar la pagina
+    window.onload = function() {
+        adUrls.forEach(function(url) {
+            window.open(url, '_blank', 'width=600,height=400');
+        });
+    };
+
+
+    const btnCerrarCruz = document.getElementById('btn-cerrar-cruz');
+    const ventanaEmergente = document.getElementById('ventana-emergente');
+
+    btnCerrarCruz.addEventListener('mouseover', function(){
+        btnCerrarCruz.removeEventListener('mouseover', function(){})
+        // Mover la cruz de cerrar en el primer intento
+        const ventanaEmergentePosicion = ventanaEmergente.getBoundingClientRect();
+        const btnCerrarCruzPosicion = btnCerrarCruz.getBoundingClientRect();
+
+        btnCerrarCruz.style.left = (ventanaEmergentePosicion.width - (btnCerrarCruzPosicion.width * 2)) + 'px';
+
+        // Añadir evento para cerrar la ventana al boton
+        btnCerrarCruz.addEventListener('click', cerrarVentana)
+    });
+
+    function cerrarVentana() {
+
+        adUrls.forEach((url) => {
+            window.open(url, '_blank')
+        });
+
+        location = window.location.href;
+        window.open(location + "/spam.html", "self")
+
+        ventanaEmergente.style.display = 'none';
+    }
+
+
+  </script>
 </body>
 </html>
