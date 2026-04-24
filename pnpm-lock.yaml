@@ -241,6 +241,7 @@ packages:
         optional: true
       terser:
         optional: true
+
 snapshots:
 
   '@babel/helper-string-parser@7.24.7': {}
